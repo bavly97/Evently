@@ -12,8 +12,32 @@ class AppTheme {
   static ThemeData lightTheme = ThemeData(
     scaffoldBackgroundColor: backgroundLight,
     primaryColor: primary,
-    appBarTheme: AppBarTheme(
-      
+    appBarTheme: AppBarTheme(),
+    floatingActionButtonTheme: FloatingActionButtonThemeData(
+      backgroundColor: primary,
+      foregroundColor: white,
+      shape: CircleBorder(
+        side: BorderSide(
+          width: 5,
+          color: white,
+        ),
+      ),
+    ),
+    bottomNavigationBarTheme: BottomNavigationBarThemeData(
+      backgroundColor: primary,
+      type: BottomNavigationBarType.fixed,
+      selectedLabelStyle: TextStyle(
+        fontSize: 14,
+        fontWeight: FontWeight.w700,
+        color: white,
+      ),
+      unselectedLabelStyle: TextStyle(
+        fontSize: 12,
+        fontWeight: FontWeight.w700,
+        color: white,
+      ),
+      selectedItemColor: white,
+      unselectedItemColor: white,
     ),
     inputDecorationTheme: InputDecorationTheme(
       hintStyle: TextStyle(
@@ -93,6 +117,6 @@ class AppTheme {
         fontWeight: FontWeight.w500,
       ),
     ),
-    );
+  );
   static ThemeData darkTheme = ThemeData();
 }
