@@ -21,7 +21,7 @@ class _HomeTabHeaderState extends State<HomeTabHeader> {
       ),
       child: SafeArea(
         child: Padding(
-          padding: const EdgeInsets.only(left: 16, bottom: 16),
+          padding: const EdgeInsets.only(left: 16, bottom: 16, top: 16),
           child: DefaultTabController(
             length: CategoryModel.categories.length,
             child: Column(
