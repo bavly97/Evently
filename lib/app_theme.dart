@@ -13,6 +13,14 @@ class AppTheme {
     scaffoldBackgroundColor: backgroundLight,
     primaryColor: primary,
     appBarTheme: AppBarTheme(),
+    tabBarTheme: TabBarTheme(
+      labelColor: white,
+      unselectedLabelColor: white,
+      indicator: BoxDecoration(
+        color: white,
+        borderRadius: BorderRadius.circular(16),
+      ),
+    ),
     floatingActionButtonTheme: FloatingActionButtonThemeData(
       backgroundColor: primary,
       foregroundColor: white,
@@ -115,6 +123,11 @@ class AppTheme {
         fontSize: 20,
         color: white,
         fontWeight: FontWeight.w500,
+      ),
+      labelMedium: TextStyle(
+        fontSize: 24,
+        color: white,
+        fontWeight: FontWeight.w700,
       ),
     ),
   );
