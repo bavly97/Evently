@@ -12,14 +12,19 @@ class AppTheme {
   static ThemeData lightTheme = ThemeData(
     scaffoldBackgroundColor: backgroundLight,
     primaryColor: primary,
-    appBarTheme: AppBarTheme(),
+    appBarTheme: AppBarTheme(
+      foregroundColor: primary,
+      centerTitle: true,
+    ),
     tabBarTheme: TabBarTheme(
+      labelPadding: EdgeInsets.symmetric(horizontal: 10),
+      tabAlignment: TabAlignment.start,
+      dividerColor: Colors.transparent,
+      indicator: BoxDecoration(
+        color: Colors.transparent,
+      ),
       labelColor: white,
       unselectedLabelColor: white,
-      indicator: BoxDecoration(
-        color: white,
-        borderRadius: BorderRadius.circular(16),
-      ),
     ),
     floatingActionButtonTheme: FloatingActionButtonThemeData(
       backgroundColor: primary,
@@ -55,21 +60,28 @@ class AppTheme {
       ),
       enabledBorder: OutlineInputBorder(
         borderSide: BorderSide(
-          color: AppTheme.grey,
+          color: grey,
           width: 1,
         ),
         borderRadius: BorderRadius.circular(16),
       ),
       focusedBorder: OutlineInputBorder(
         borderSide: BorderSide(
-          color: AppTheme.grey,
+          color: grey,
+          width: 1,
+        ),
+        borderRadius: BorderRadius.circular(16),
+      ),
+      focusedErrorBorder: OutlineInputBorder(
+        borderSide: BorderSide(
+          color: red,
           width: 1,
         ),
         borderRadius: BorderRadius.circular(16),
       ),
       errorBorder: OutlineInputBorder(
         borderSide: BorderSide(
-          color: AppTheme.red,
+          color: red,
           width: 1,
         ),
         borderRadius: BorderRadius.circular(16),

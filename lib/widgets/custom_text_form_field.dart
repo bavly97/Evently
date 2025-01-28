@@ -4,17 +4,19 @@ import 'package:flutter_svg/svg.dart';
 
 class CustomTextFormField extends StatefulWidget {
   String hintText;
-  String iconName;
+  String? iconName;
   TextEditingController? controller;
   bool isPassword;
   String? Function(String?)? validator;
+  int maxLines;
 
   CustomTextFormField({
     required this.hintText,
-    required this.iconName,
+    this.iconName,
     this.controller,
     this.isPassword = false,
     this.validator,
+    this.maxLines = 1,
   });
 
   @override
@@ -29,20 +31,23 @@ class _CustomTextFormFieldState extends State<CustomTextFormField> {
     TextTheme textTheme = Theme.of(context).textTheme;
 
     return TextFormField(
+      maxLines: widget.maxLines,
       autovalidateMode: AutovalidateMode.onUserInteraction,
-      validator:widget. validator ,
+      validator: widget.validator,
       obscureText: isObscured,
       obscuringCharacter: '*',
       controller: widget.controller,
       style: textTheme.bodyLarge,
       decoration: InputDecoration(
-        prefixIcon: SvgPicture.asset(
-          'assets/icons/${widget.iconName}.svg',
-          width: 24,
-          height: 24,
-          fit: BoxFit.scaleDown,
-          colorFilter: ColorFilter.mode(AppTheme.grey, BlendMode.srcIn),
-        ),
+        prefixIcon: widget.iconName == null
+            ? null
+            : SvgPicture.asset(
+                'assets/icons/${widget.iconName}.svg',
+                width: 24,
+                height: 24,
+                fit: BoxFit.scaleDown,
+                colorFilter: ColorFilter.mode(AppTheme.grey, BlendMode.srcIn),
+              ),
         suffixIcon: widget.isPassword
             ? IconButton(
                 onPressed: () {
@@ -56,7 +61,6 @@ class _CustomTextFormFieldState extends State<CustomTextFormField> {
               )
             : null,
         hintText: widget.hintText,
-       
       ),
     );
   }

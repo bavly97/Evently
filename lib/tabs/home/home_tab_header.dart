@@ -1,3 +1,4 @@
+import 'package:evently/app_theme.dart';
 import 'package:evently/models/category_model.dart';
 import 'package:evently/tabs/home/tab_item.dart';
 import 'package:flutter/material.dart';
@@ -21,7 +22,7 @@ class _HomeTabHeaderState extends State<HomeTabHeader> {
       ),
       child: SafeArea(
         child: Padding(
-          padding: const EdgeInsets.only(left: 16, bottom: 16, top: 16),
+          padding: EdgeInsets.only(left: 16, bottom: 16, top: 16),
           child: DefaultTabController(
             length: CategoryModel.categories.length,
             child: Column(
@@ -41,15 +42,13 @@ class _HomeTabHeaderState extends State<HomeTabHeader> {
                     selectedIndex = index;
                     setState(() {});
                   },
-                  tabAlignment: TabAlignment.start,
-                  dividerColor: Colors.transparent,
-                  indicator: BoxDecoration(
-                    color: Colors.transparent,
-                  ),
                   isScrollable: true,
                   tabs: CategoryModel.categories
                       .map(
                         (category) => TabItem(
+                          foregroundColor: AppTheme.white,
+                          selectedForegroundColor: AppTheme.primary,
+                          backgroundColor: AppTheme.white,
                           categoryModel: category,
                           isSelected: selectedIndex ==
                               CategoryModel.categories.indexOf(category),
